@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_rockets/presentation/page/home/widget/missions_loading_indicator.dart';
+import 'package:task_rockets/presentation/page/home/widget/mission_card.dart';
 import 'package:task_rockets/presentation/page/home/widget/rocket_images_slider.dart';
 
 class HomePage extends StatelessWidget {
@@ -21,14 +21,14 @@ class HomePage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            RocketImagesSlider(),
-            SizedBox(height: 25),
-            Padding(
-              padding: EdgeInsets.all(20),
+            const RocketImagesSlider(),
+            const SizedBox(height: 20),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 'Missions',
                 style: TextStyle(
@@ -39,7 +39,12 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: MissionsLoadingIndicator(),
+              child: ListView.builder(
+                itemCount: 4,
+                itemBuilder: (context, index) {
+                  return const MissionCard();
+                },
+              ),
             ),
           ],
         ),
