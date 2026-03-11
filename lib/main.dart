@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const TaskRocketApp());
+  runApp(const TaskRocketsApp());
 }
 
-class TaskRocketApp extends StatelessWidget {
-  const TaskRocketApp({super.key});
+class TaskRocketsApp extends StatelessWidget {
+  const TaskRocketsApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return const MaterialApp();
   }
 }
