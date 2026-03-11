@@ -22,6 +22,7 @@ class MissionCard extends StatelessWidget {
                 '04/06/2010',
                 style: TextStyle(
                   color: Color(0xFFBAFC54),
+                  fontFamily: 'Inter',
                   fontWeight: FontWeight.w500,
                   fontSize: 16,
                 ),
@@ -30,6 +31,7 @@ class MissionCard extends StatelessWidget {
                 '6:45 PM',
                 style: TextStyle(
                   color: Color(0xFFC5C5C5),
+                  fontFamily: 'Inter',
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                 ),
@@ -45,6 +47,7 @@ class MissionCard extends StatelessWidget {
                   'Falcon 9 Test Flight',
                   style: TextStyle(
                     color: Colors.white,
+                    fontFamily: 'Inter',
                     fontWeight: FontWeight.w500,
                     fontSize: 20,
                   ),
@@ -53,6 +56,7 @@ class MissionCard extends StatelessWidget {
                   'Cape Canaberal Air Force Station Space Launch Complex 40',
                   style: TextStyle(
                     color: Color(0xFFA5A5A5),
+                    fontFamily: 'Inter',
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
                   ),

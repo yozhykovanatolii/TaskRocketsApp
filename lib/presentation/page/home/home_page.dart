@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
           'SpaceX Launches',
           style: TextStyle(
             color: Colors.white,
+            fontFamily: 'Inter',
             fontSize: 24,
             fontWeight: FontWeight.w500,
           ),
@@ -33,6 +34,7 @@ class HomePage extends StatelessWidget {
                 'Missions',
                 style: TextStyle(
                   color: Colors.white,
+                  fontFamily: 'Inter',
                   fontSize: 24,
                   fontWeight: FontWeight.w500,
                 ),
