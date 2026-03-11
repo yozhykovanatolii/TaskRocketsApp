@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_rockets/presentation/page/home/home_page.dart';
 
 void main() {
   runApp(const TaskRocketsApp());
@@ -9,6 +10,8 @@ class TaskRocketsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return const MaterialApp(
+      home: HomePage(),
+    );
   }
 }
