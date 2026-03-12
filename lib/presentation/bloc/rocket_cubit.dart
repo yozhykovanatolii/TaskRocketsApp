@@ -4,10 +4,11 @@ import 'package:task_rockets/data/repository/rocket_repository.dart';
 import 'package:task_rockets/presentation/bloc/rocket_state.dart';
 
 class RocketCubit extends Cubit<RocketState> {
-  final _rocketRepository = RocketRepository();
-  final _launchRepository = LaunchRepository();
+  final RocketRepository _rocketRepository;
+  final LaunchRepository _launchRepository;
 
-  RocketCubit() : super(RocketState.initial());
+  RocketCubit(this._rocketRepository, this._launchRepository)
+    : super(RocketState.initial());
 
   Future<void> fetchData() async {
     final rockets = await _rocketRepository.getAllRockets();
