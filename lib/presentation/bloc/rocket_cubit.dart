@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_rockets/core/exception/launches_not_found_exception.dart';
 import 'package:task_rockets/data/repository/launch_repository.dart';
 import 'package:task_rockets/data/repository/rocket_repository.dart';
 import 'package:task_rockets/presentation/bloc/rocket_state.dart';
@@ -33,10 +34,10 @@ class RocketCubit extends Cubit<RocketState> {
           launchStatus: LaunchStatus.success,
         ),
       );
-    } catch (exception) {
+    } on LaunchesNotFoundException catch (exception) {
       emit(
         state.copyWith(
-          errorMessage: exception.toString(),
+          errorMessage: exception.errorMessage,
           launchStatus: LaunchStatus.failure,
         ),
       );
