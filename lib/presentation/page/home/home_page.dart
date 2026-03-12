@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:task_rockets/presentation/bloc/rocket_cubit.dart';
+import 'package:task_rockets/presentation/bloc/rocket_state.dart';
 import 'package:task_rockets/presentation/page/home/widget/mission_card.dart';
+import 'package:task_rockets/presentation/page/home/widget/missions_loading_indicator.dart';
 import 'package:task_rockets/presentation/page/home/widget/rocket_images_slider.dart';
 
 class HomePage extends StatelessWidget {
@@ -41,10 +45,30 @@ class HomePage extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: ListView.builder(
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return const MissionCard();
+              child: BlocBuilder<RocketCubit, RocketState>(
+                builder: (context, state) {
+                  if (state.launchStatus == LaunchStatus.failure) {
+                    return Center(
+                      child: Text(
+                        state.errorMessage,
+                        style: const TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    );
+                  }
+                  if (state.launchStatus == LaunchStatus.success) {
+                    final rocketLaunches = state.rocketLaunches;
+                    return ListView.builder(
+                      itemCount: rocketLaunches.length,
+                      itemBuilder: (context, index) {
+                        return MissionCard(
+                          launchModel: rocketLaunches[index],
+                        );
+                      },
+                    );
+                  }
+                  return const MissionsLoadingIndicator();
                 },
               ),
             ),

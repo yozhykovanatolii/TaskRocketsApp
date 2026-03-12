@@ -7,7 +7,7 @@ part 'launch_model.g.dart';
 class LaunchModel {
   @JsonKey(name: 'mission_name')
   final String missionName;
-  @JsonKey(name: 'launch_date_utc')
+  @JsonKey(name: 'launch_date_local')
   final String launchDateTime;
   @JsonKey(name: 'launch_site')
   final LaunchSiteModel launchSite;

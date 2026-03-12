@@ -8,7 +8,7 @@ part of 'launch_model.dart';
 
 LaunchModel _$LaunchModelFromJson(Map<String, dynamic> json) => LaunchModel(
   missionName: json['mission_name'] as String,
-  launchDateTime: json['launch_date_utc'] as String,
+  launchDateTime: json['launch_date_local'] as String,
   launchSite: LaunchSiteModel.fromJson(
     json['launch_site'] as Map<String, dynamic>,
   ),
@@ -17,6 +17,6 @@ LaunchModel _$LaunchModelFromJson(Map<String, dynamic> json) => LaunchModel(
 Map<String, dynamic> _$LaunchModelToJson(LaunchModel instance) =>
     <String, dynamic>{
       'mission_name': instance.missionName,
-      'launch_date_utc': instance.launchDateTime,
+      'launch_date_local': instance.launchDateTime,
       'launch_site': instance.launchSite,
     };

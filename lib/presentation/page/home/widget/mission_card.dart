@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:task_rockets/data/model/launch/launch_model.dart';
 
 class MissionCard extends StatelessWidget {
-  const MissionCard({super.key});
+  final LaunchModel launchModel;
+
+  const MissionCard({
+    super.key,
+    required this.launchModel,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,10 +18,10 @@ class MissionCard extends StatelessWidget {
         color: const Color(0xFF1C1C1C),
         borderRadius: BorderRadius.circular(10),
       ),
-      child: const Row(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
+          const Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
@@ -38,14 +44,14 @@ class MissionCard extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(width: 20),
+          const SizedBox(width: 20),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Falcon 9 Test Flight',
-                  style: TextStyle(
+                  launchModel.missionName,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontFamily: 'Inter',
                     fontWeight: FontWeight.w500,
@@ -53,8 +59,8 @@ class MissionCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Cape Canaberal Air Force Station Space Launch Complex 40',
-                  style: TextStyle(
+                  launchModel.launchSite.siteName,
+                  style: const TextStyle(
                     color: Color(0xFFA5A5A5),
                     fontFamily: 'Inter',
                     fontSize: 16,
