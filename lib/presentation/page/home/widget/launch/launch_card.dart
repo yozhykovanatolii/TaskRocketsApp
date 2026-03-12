@@ -61,7 +61,7 @@ class LaunchCard extends StatelessWidget {
                 Text(
                   launchUI.siteName,
                   style: const TextStyle(
-                    color: Color(0xFFA5A5A5),
+                    color: Color(0xFFC5C5C5),
                     fontFamily: 'Inter',
                     fontSize: 16,
                     fontWeight: FontWeight.w400,

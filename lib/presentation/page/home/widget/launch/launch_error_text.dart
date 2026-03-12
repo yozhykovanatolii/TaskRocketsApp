@@ -15,6 +15,9 @@ class LaunchErrorText extends StatelessWidget {
         errorMessage,
         style: const TextStyle(
           color: Colors.white,
+          fontFamily: 'Inter',
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );

@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const RocketImagesSlider(),
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
