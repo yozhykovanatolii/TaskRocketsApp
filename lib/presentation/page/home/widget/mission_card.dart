@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:task_rockets/data/model/launch/launch_model.dart';
+import 'package:task_rockets/presentation/model/launch_ui.dart';
 
 class MissionCard extends StatelessWidget {
-  final LaunchModel launchModel;
+  final LaunchUi launchUI;
 
   const MissionCard({
     super.key,
-    required this.launchModel,
+    required this.launchUI,
   });
 
   @override
@@ -26,9 +25,7 @@ class MissionCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                DateFormat(
-                  'dd/MM/yyyy',
-                ).format(DateTime.parse(launchModel.launchDateTime)),
+                launchUI.launchDate,
                 style: const TextStyle(
                   color: Color(0xFFBAFC54),
                   fontFamily: 'Inter',
@@ -37,9 +34,7 @@ class MissionCard extends StatelessWidget {
                 ),
               ),
               Text(
-                DateFormat(
-                  'hh:mm a',
-                ).format(DateTime.parse(launchModel.launchDateTime)),
+                launchUI.launchTime,
                 style: const TextStyle(
                   color: Color(0xFFC5C5C5),
                   fontFamily: 'Inter',
@@ -55,7 +50,7 @@ class MissionCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  launchModel.missionName,
+                  launchUI.missionName,
                   style: const TextStyle(
                     color: Colors.white,
                     fontFamily: 'Inter',
@@ -64,7 +59,7 @@ class MissionCard extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  launchModel.launchSite.siteName,
+                  launchUI.siteName,
                   style: const TextStyle(
                     color: Color(0xFFA5A5A5),
                     fontFamily: 'Inter',

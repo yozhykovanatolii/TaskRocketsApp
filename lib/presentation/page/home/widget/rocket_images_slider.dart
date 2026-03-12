@@ -1,22 +1,22 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:task_rockets/data/model/rocket/rocket_model.dart';
 import 'package:task_rockets/presentation/bloc/rocket_cubit.dart';
+import 'package:task_rockets/presentation/model/rocket_ui.dart';
 
 class RocketImagesSlider extends StatelessWidget {
   const RocketImagesSlider({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final rockets = context.select(
+    final rocketsUI = context.select(
       (RocketCubit rocketCubit) => rocketCubit.state.rockets,
     );
     return Column(
       spacing: 10,
       children: [
         CarouselSlider.builder(
-          itemCount: rockets.length,
+          itemCount: rocketsUI.length,
           itemBuilder: (context, index, realIndex) {
             return Container(
               margin: const EdgeInsets.all(5),
@@ -24,7 +24,7 @@ class RocketImagesSlider extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
                   image: NetworkImage(
-                    rockets[index].flickrImages.first,
+                    rocketsUI[index].flickrImage,
                   ),
                   fit: BoxFit.cover,
                 ),
@@ -37,20 +37,20 @@ class RocketImagesSlider extends StatelessWidget {
             viewportFraction: 0.78,
             onPageChanged: (index, reason) {
               context.read<RocketCubit>().fetchRocketsLaunches(
-                rockets[index].rocketId,
+                rocketsUI[index].id,
                 index,
               );
             },
           ),
         ),
-        _DotIndicator(rockets: rockets),
+        _DotIndicator(rockets: rocketsUI),
       ],
     );
   }
 }
 
 class _DotIndicator extends StatelessWidget {
-  final List<RocketModel> rockets;
+  final List<RocketUi> rockets;
 
   const _DotIndicator({required this.rockets});
 

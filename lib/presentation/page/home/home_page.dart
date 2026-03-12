@@ -63,7 +63,7 @@ class HomePage extends StatelessWidget {
                       itemCount: rocketLaunches.length,
                       itemBuilder: (context, index) {
                         return MissionCard(
-                          launchModel: rocketLaunches[index],
+                          launchUI: rocketLaunches[index],
                         );
                       },
                     );

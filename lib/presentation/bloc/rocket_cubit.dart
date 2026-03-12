@@ -3,6 +3,8 @@ import 'package:task_rockets/core/exception/launches_not_found_exception.dart';
 import 'package:task_rockets/data/repository/launch_repository.dart';
 import 'package:task_rockets/data/repository/rocket_repository.dart';
 import 'package:task_rockets/presentation/bloc/rocket_state.dart';
+import 'package:task_rockets/presentation/mapper/launch_mapper.dart';
+import 'package:task_rockets/presentation/mapper/rocket_mapper.dart';
 
 class RocketCubit extends Cubit<RocketState> {
   final RocketRepository _rocketRepository;
@@ -13,7 +15,10 @@ class RocketCubit extends Cubit<RocketState> {
 
   Future<void> fetchData() async {
     final rockets = await _rocketRepository.getAllRockets();
-    emit(state.copyWith(rockets: rockets));
+    final rocketUiList = rockets
+        .map((rockets) => RocketMapper.toUI(rockets))
+        .toList();
+    emit(state.copyWith(rockets: rocketUiList));
     await fetchRocketsLaunches(rockets.first.rocketId, 0);
   }
 
@@ -28,9 +33,12 @@ class RocketCubit extends Cubit<RocketState> {
       final rocketLaunches = await _launchRepository.getAllLaunchesByRocketId(
         rocketId,
       );
+      final rocketLaunchesUI = rocketLaunches
+          .map((launches) => LaunchMapper.toUI(launches))
+          .toList();
       emit(
         state.copyWith(
-          rocketLaunches: rocketLaunches,
+          rocketLaunches: rocketLaunchesUI,
           launchStatus: LaunchStatus.success,
         ),
       );

@@ -9,12 +9,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Dependencies.setupDependencies();
   runApp(
-    MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (_) => GetIt.I<RocketCubit>()..fetchData(),
-        ),
-      ],
+    BlocProvider(
+      create: (_) => GetIt.I<RocketCubit>()..fetchData(),
       child: const TaskRocketsApp(),
     ),
   );

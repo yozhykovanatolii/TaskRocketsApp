@@ -1,11 +1,11 @@
-import 'package:task_rockets/data/model/launch/launch_model.dart';
-import 'package:task_rockets/data/model/rocket/rocket_model.dart';
+import 'package:task_rockets/presentation/model/launch_ui.dart';
+import 'package:task_rockets/presentation/model/rocket_ui.dart';
 
 enum LaunchStatus { initial, loading, success, failure }
 
 class RocketState {
-  final List<RocketModel> rockets;
-  final List<LaunchModel> rocketLaunches;
+  final List<RocketUi> rockets;
+  final List<LaunchUi> rocketLaunches;
   final int currentRocketIndex;
   final String errorMessage;
   final LaunchStatus launchStatus;
@@ -29,8 +29,8 @@ class RocketState {
   }
 
   RocketState copyWith({
-    List<RocketModel>? rockets,
-    List<LaunchModel>? rocketLaunches,
+    List<RocketUi>? rockets,
+    List<LaunchUi>? rocketLaunches,
     int? currentRocketIndex,
     String? errorMessage,
     LaunchStatus? launchStatus,
