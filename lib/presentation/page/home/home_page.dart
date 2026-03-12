@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_rockets/presentation/bloc/rocket_cubit.dart';
 import 'package:task_rockets/presentation/bloc/rocket_state.dart';
+import 'package:task_rockets/presentation/page/home/widget/launch_error_text.dart';
 import 'package:task_rockets/presentation/page/home/widget/mission_card.dart';
 import 'package:task_rockets/presentation/page/home/widget/missions_loading_indicator.dart';
 import 'package:task_rockets/presentation/page/home/widget/rocket_images_slider.dart';
@@ -48,13 +49,8 @@ class HomePage extends StatelessWidget {
               child: BlocBuilder<RocketCubit, RocketState>(
                 builder: (context, state) {
                   if (state.launchStatus == LaunchStatus.failure) {
-                    return Center(
-                      child: Text(
-                        state.errorMessage,
-                        style: const TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
+                    return LaunchErrorText(
+                      errorMessage: state.errorMessage,
                     );
                   }
                   if (state.launchStatus == LaunchStatus.success) {
