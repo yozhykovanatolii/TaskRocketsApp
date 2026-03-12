@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:task_rockets/presentation/model/launch_ui.dart';
 
-class MissionCard extends StatelessWidget {
+class LaunchCard extends StatelessWidget {
   final LaunchUi launchUI;
 
-  const MissionCard({
+  const LaunchCard({
     super.key,
     required this.launchUI,
   });
