@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task_rockets/presentation/bloc/rocket_cubit.dart';
 import 'package:task_rockets/presentation/bloc/rocket_state.dart';
-import 'package:task_rockets/presentation/page/home/widget/launch_error_text.dart';
-import 'package:task_rockets/presentation/page/home/widget/launch_card.dart';
-import 'package:task_rockets/presentation/page/home/widget/launches_loading_indicator.dart';
+import 'package:task_rockets/presentation/page/home/widget/launch/launch_error_text.dart';
+import 'package:task_rockets/presentation/page/home/widget/launch/launch_card.dart';
+import 'package:task_rockets/presentation/page/home/widget/launch/launches_loading_indicator.dart';
 import 'package:task_rockets/presentation/page/home/widget/rocket_images_slider.dart';
 
 class HomePage extends StatelessWidget {
