@@ -4,7 +4,7 @@ import 'package:task_rockets/presentation/bloc/rocket_cubit.dart';
 import 'package:task_rockets/presentation/bloc/rocket_state.dart';
 import 'package:task_rockets/presentation/page/home/widget/launch_error_text.dart';
 import 'package:task_rockets/presentation/page/home/widget/mission_card.dart';
-import 'package:task_rockets/presentation/page/home/widget/missions_loading_indicator.dart';
+import 'package:task_rockets/presentation/page/home/widget/launches_loading_indicator.dart';
 import 'package:task_rockets/presentation/page/home/widget/rocket_images_slider.dart';
 
 class HomePage extends StatelessWidget {
@@ -64,7 +64,7 @@ class HomePage extends StatelessWidget {
                       },
                     );
                   }
-                  return const MissionsLoadingIndicator();
+                  return const LaunchesLoadingIndicator();
                 },
               ),
             ),
