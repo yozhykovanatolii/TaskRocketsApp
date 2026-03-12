@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:task_rockets/data/model/launch/launch_model.dart';
 
 class MissionCard extends StatelessWidget {
@@ -21,12 +22,14 @@ class MissionCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '04/06/2010',
-                style: TextStyle(
+                DateFormat(
+                  'dd/MM/yyyy',
+                ).format(DateTime.parse(launchModel.launchDateTime)),
+                style: const TextStyle(
                   color: Color(0xFFBAFC54),
                   fontFamily: 'Inter',
                   fontWeight: FontWeight.w500,
@@ -34,8 +37,10 @@ class MissionCard extends StatelessWidget {
                 ),
               ),
               Text(
-                '6:45 PM',
-                style: TextStyle(
+                DateFormat(
+                  'hh:mm a',
+                ).format(DateTime.parse(launchModel.launchDateTime)),
+                style: const TextStyle(
                   color: Color(0xFFC5C5C5),
                   fontFamily: 'Inter',
                   fontSize: 16,
