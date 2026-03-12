@@ -19,10 +19,11 @@ class RocketCubit extends Cubit<RocketState> {
         .map((rockets) => RocketMapper.toUI(rockets))
         .toList();
     emit(state.copyWith(rockets: rocketUiList));
-    await fetchRocketsLaunches(rockets.first.rocketId, 0);
+    await fetchRocketsLaunches(0);
   }
 
-  Future<void> fetchRocketsLaunches(String rocketId, int index) async {
+  Future<void> fetchRocketsLaunches(int index) async {
+    final rocketId = state.rockets[index].id;
     emit(
       state.copyWith(
         launchStatus: LaunchStatus.loading,

@@ -27,10 +27,7 @@ class RocketImagesSlider extends StatelessWidget {
             enlargeStrategy: CenterPageEnlargeStrategy.scale,
             enlargeFactor: 0.25,
             onPageChanged: (index, reason) {
-              context.read<RocketCubit>().fetchRocketsLaunches(
-                rocketsUI[index].id,
-                index,
-              );
+              context.read<RocketCubit>().fetchRocketsLaunches(index);
             },
           ),
         ),
